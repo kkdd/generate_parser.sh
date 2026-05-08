@@ -58,7 +58,8 @@ while IFS= read -r line; do
   fi
 done
 
-printf '%s\n\n' '    --)  shift; break;;
+printf '%s\n\n' '    -[!-][!-]*)  rest_flags=${1#??}; first_flag="${1%"$rest_flags"}"; shift; set -- "$first_flag" "-$rest_flags" "$@"; continue;;
+    --)  shift; break;;
     -*)  append_warning_f "unknown option: $1";;
     *)  break;;
   esac
