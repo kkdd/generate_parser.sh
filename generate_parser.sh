@@ -11,7 +11,7 @@ OPTIONS="Options:
   -m, --mammal NAME  Set mammal name. (variable 'mammal_var')
 "
 
-OPTIONS="$(cat "$@")"
+[ -p /dev/stdin ] && OPTIONS="$(cat)"
 
 # generate arg_parser.sh
 printf '%s\n\n' '#!/bin/sh
